@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <!--
+    WARNING! Make sure that you match all Quasar related
+    tags to the same version! (Below it's "@2.16.4")
+  -->
+
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/quasar@2.16.4/dist/quasar.css" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <!-- example of injection point where you write your app template -->
+		<div id="q-app" style="min-height: 100vh;">
+			<div class="q-pa-md">
+				<q-table
+					flat bordered
+					title="Treats"
+					:rows="rows"
+					:columns="columns"
+					row-key="name"
+					:visible-columns="visibleColumns"
+				>
+					<template v-slot:top>
+						<q-select
+							v-model="visibleColumns"
+							multiple
+							outlined
+							dense
+							options-dense
+							:display-value="$q.lang.table.columns"
+							emit-value
+							map-options
+							:options="columns"
+							option-value="name"
+							options-cover
+							style="min-width: 150px"
+						></q-select>
+					</template>
+
+				</q-table>
+			</div>
+		</div>
+
+    <!-- Add the following at the end of your body tag -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quasar@2.16.4/dist/quasar.umd.js"></script>
+    
+		<script src="main.js"></script>
+  </body>
+</html>
