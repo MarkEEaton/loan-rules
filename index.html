@@ -8,33 +8,48 @@
 
   <body>
 		<div id="q-app" style="min-height: 100vh;">
-			<div class="q-pa-md">
-				<q-table
-					flat bordered
-					:rows="rows"
-					:columns="columns"
-					row-key="name"
-					:visible-columns="visibleColumns"
-				>
-					<template v-slot:top>
-						<q-select
-							v-model="visibleColumns"
-							multiple
-							outlined
-							dense
-							options-dense
-							:display-value="$q.lang.table.columns"
-							emit-value
-							map-options
-							:options="columns"
-							option-value="name"
-							options-cover
-							style="min-width: 150px"
-						></q-select>
-					</template>
+			  <div class="q-pa-md">
+    <q-table
+      flat bordered
+      title="Treats"
+      :rows="rows"
+      :columns="columns"
+      row-key="name"
+      :visible-columns="visibleColumns"
+    >
+      <template v-slot:top="props">
+        <div class="col-2 q-table__title">Treats</div>
 
-				</q-table>
-			</div>
+				<q-space></q-space>
+
+        <div v-if="$q.screen.gt.xs" class="col">
+					<q-toggle v-model="visibleColumns" val="Enabled" label="Enabled"></q-toggle>
+        </div>
+        <q-select
+          v-else
+          v-model="visibleColumns"
+          multiple
+          borderless
+          dense
+          options-dense
+          :display-value="$q.lang.table.columns"
+          emit-value
+          map-options
+          :options="columns"
+          option-value="name"
+          style="min-width: 150px"
+					></q-select>
+
+        <q-btn
+          flat round dense
+          :icon="props.inFullscreen ? 'fullscreen_exit' : 'fullscreen'"
+          @click="props.toggleFullscreen"
+          class="q-ml-md"
+					></q-btn>
+      </template>
+
+    </q-table>
+  </div>
 		</div>
 
     <!-- Add the following at the end of your body tag -->
