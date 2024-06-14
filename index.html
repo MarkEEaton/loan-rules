@@ -1,61 +1,231 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet" type="text/css">
-    <link href="https://cdn.jsdelivr.net/npm/quasar@2.16.4/dist/quasar.css" rel="stylesheet" type="text/css">
-    <link href="main.css" rel="stylesheet" type="text/css">
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/quasar@2.16.4/dist/quasar.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="main.css" rel="stylesheet" type="text/css" />
   </head>
 
   <body>
-		<div id="q-app" style="min-height: 100vh;">
-			  <div class="q-pa-md">
-    <q-table
-      flat bordered
-      title="Treats"
-      :rows="rows"
-      :columns="columns"
-      row-key="name"
-      :visible-columns="visibleColumns"
-    >
-      <template v-slot:top="props">
-        <div class="col-2 q-table__title">Treats</div>
+    <div id="q-app" style="min-height: 100vh">
+      <div class="q-pa-md">
+        <q-table
+          flat
+          bordered
+          title="Treats"
+          :rows="rows"
+          :columns="columns"
+          row-key="name"
+          :visible-columns="visibleColumns"
+        >
+          <template v-slot:top="props">
+            <div v-if="$q.screen.gt.xs" class="col">
+              <q-toggle
+                v-model="visibleColumns"
+                val="Block When Overdue"
+                label="Block When Overdue"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Cancelled Recall Due Date"
+                label="Cancelled Recall Due Date"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Closed Library Due Date Management"
+                label="Closed Library Due Date Management"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Due Date"
+                label="Due Date"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Enabled"
+                label="Enabled"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Fullfilment Unit"
+                label="Fullfilment Unit"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Grace Period"
+                label="Grace Period"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Is Loanable"
+                label="Is Loanable"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Is Recallable"
+                label="Is Recallable"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Is Renewable"
+                label="Is Renewable"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Lost Item Fine"
+                label="Lost Item Fine"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Lost Item Replacement Fee"
+                label="Lost Item Replacement Fee"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Lost Item Replacement Fee Refund Ratio"
+                label="Lost Item Replacement Fee Refund Ratio"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Maximum Fine"
+                label="Maximum Fine"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Maximum Period For Overdue Block"
+                label="Maximum Period For Overdue Block"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Maximum Renewal Period"
+                label="Maximum Renewal Period"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Output"
+                label="Output"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Overdue Fine"
+                label="Overdue Fine"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Overdue Notification Fine Type 1"
+                label="Overdue Notification Fine Type 1"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Overdue Notification Fine Type 2"
+                label="Overdue Notification Fine Type 2"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Overdue Notification Fine Type 3"
+                label="Overdue Notification Fine Type 3"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Overdue Notification Fine Type 4"
+                label="Overdue Notification Fine Type 4"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Overdue Notification Fine Type 5"
+                label="Overdue Notification Fine Type 5"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Parameter"
+                label="Parameter"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Possible Locations"
+                label="Possible Locations"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Recall Period"
+                label="Recall Period"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Recalled Overdue Fine"
+                label="Recalled Overdue Fine"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Reloan Limit"
+                label="Reloan Limit"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Renew Fee"
+                label="Renew Fee"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Requested Item Due Date"
+                label="Requested Item Due Date"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Time frame when loan renewal is allowed"
+                label="Time frame when loan renewal is allowed"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Unnamed: 0"
+                label="Unnamed: 0"
+              ></q-toggle>
+              <q-toggle
+                v-model="visibleColumns"
+                val="Unnamed: 4"
+                label="Unnamed: 4"
+              ></q-toggle>
+            </div>
+            <q-select
+              v-else
+              v-model="visibleColumns"
+              multiple
+              borderless
+              dense
+              options-dense
+              :display-value="$q.lang.table.columns"
+              emit-value
+              map-options
+              :options="columns"
+              option-value="name"
+              style="min-width: 150px"
+            ></q-select>
 
-				<q-space></q-space>
-
-        <div v-if="$q.screen.gt.xs" class="col">
-					<q-toggle v-model="visibleColumns" val="Enabled" label="Enabled"></q-toggle>
-        </div>
-        <q-select
-          v-else
-          v-model="visibleColumns"
-          multiple
-          borderless
-          dense
-          options-dense
-          :display-value="$q.lang.table.columns"
-          emit-value
-          map-options
-          :options="columns"
-          option-value="name"
-          style="min-width: 150px"
-					></q-select>
-
-        <q-btn
-          flat round dense
-          :icon="props.inFullscreen ? 'fullscreen_exit' : 'fullscreen'"
-          @click="props.toggleFullscreen"
-          class="q-ml-md"
-					></q-btn>
-      </template>
-
-    </q-table>
-  </div>
-		</div>
+            <q-btn
+              flat
+              round
+              dense
+              :icon="props.inFullscreen ? 'fullscreen_exit' : 'fullscreen'"
+              @click="props.toggleFullscreen"
+              class="q-ml-md"
+            ></q-btn>
+          </template>
+        </q-table>
+      </div>
+    </div>
 
     <!-- Add the following at the end of your body tag -->
     <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/quasar@2.16.4/dist/quasar.umd.js"></script>
-    
-		<script src="main.js"></script>
+
+    <script src="main.js"></script>
   </body>
 </html>
