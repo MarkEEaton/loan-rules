@@ -529,10 +529,10 @@ const app = Vue.createApp({
     return {
       visibleColumns: ref([ 'Block When Overdue', 
                             'Cancelled Recall Due Date',
-                            'Closed Library Due Data Management', 
+                            'Closed Library Due Date Management', 
                             'Due Date',
                             'Enabled',
-                            'Fullfillment Unit',
+                            'Fullfilment Unit',
                             'Grace Period',
                             'Is Loanable',
                             'Is Recallable',
