@@ -1,1 +1,17 @@
-.q-pa-md { background-color: #ccc }
+.q-pa-md { background-color: #aaa }
+
+.my-sticky-column-table thead tr:first-child th:first-child {
+  /* bg color is important for th; just specify one */
+  background-color: #efefef;
+}
+.my-sticky-column-table td:first-child {
+  background-color: #efefef;
+}
+.my-sticky-column-table th:first-child,
+.my-sticky-column-table td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+}
+
+/*# sourceMappingURL=main.css.map */

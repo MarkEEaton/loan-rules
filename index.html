@@ -18,16 +18,16 @@
     <div id="q-app" style="min-height: 100vh">
       <div class="q-pa-md">
         <q-table
+          class="my-sticky-column-table"
           flat
           bordered
-          title="Treats"
           :rows="rows"
           :columns="columns"
           row-key="name"
           :visible-columns="visibleColumns"
         >
           <template v-slot:top="props">
-            <div v-if="$q.screen.gt.xs" class="col">
+            <div v-if="$q.screen.gt.xs" class="col text-weight-light">
               <q-toggle
                 v-model="visibleColumns"
                 val="Block When Overdue"
