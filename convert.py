@@ -14,9 +14,18 @@ for field in json_list:
     pl = field["Possible Locations"].split(",")
     if len(pl) > 1:
         for location in pl:
-            field["Possible Locations"] = location
+
+            # create field "PossibleLocations" and remove "Possible Locations"
+            field["PossibleLocations"] = location
+            try:
+                field.pop("Possible Locations")
+            except KeyError:
+                pass
             output.append(field)
+
     else:
+        # rename field to "PossibleLocations"
+        field["PossibleLocations"] = field.pop("Possible Locations")
         output.append(field)
 
 # write data to file
