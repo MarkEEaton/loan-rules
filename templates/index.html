@@ -12,11 +12,16 @@
       rel="stylesheet"
       type="text/css"
     />
-    <link href="main.css" rel="stylesheet" type="text/css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for("static", filename="main.css") }}"
+    />
+
   </head>
 
   <body>
-    <div id="q-app" style="min-height: 100vh">
+    <div id="q-app">
       <div class="q-pa-md">
         <q-table
           class="my-sticky-column-table"
@@ -207,7 +212,6 @@
               map-options
               :options="columns"
               option-value="name"
-              style="min-width: 150px"
             ></q-select>
           </template>
         </q-table>
@@ -217,7 +221,6 @@
     <!-- Add the following at the end of your body tag -->
     <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/quasar@2.16.4/dist/quasar.umd.js"></script>
-
-    <script src="main.js"></script>
+    <script src="{{ url_for("static", filename="main.js") }}"></script>
   </body>
 </html>

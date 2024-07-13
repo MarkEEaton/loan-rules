@@ -1,4 +1,6 @@
 .q-pa-md { background-color: #aaa }
+#q-app { min-height: 100vh }
+q-select { min-width: 150px }
 
 .my-sticky-column-table thead tr:first-child th:first-child {
   /* bg color is important for th; just specify one */
