@@ -9,12 +9,15 @@ json_list = json.loads(json_string)
 
 output = []
 
+# separate out "Possible Locations" and create an entry for each
 for field in json_list:
     pl = field["Possible Locations"].split(",")
-    if len(pl) == 1:
+    if len(pl) > 1:
+        for location in pl:
+            field["Possible Locations"] = location
+            output.append(field)
+    else:
         output.append(field)
-
-pprint(output)
 
 # write data to file
 with open('expirmental_data.json', 'w') as json_file:
