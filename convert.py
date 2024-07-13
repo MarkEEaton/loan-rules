@@ -19,20 +19,21 @@ for field in json_list:
             if location[:1] == " ":
                 location = location[1:]
 
-            # create field "PossibleLocations" and remove "Possible Locations"
-            field["PossibleLocations"] = location
-            try:
-                field.pop("Possible Locations")
-            except KeyError:
-                pass
             output.append(field)
-
+            output[-1]["Possible Locations"] = location
     else:
-        # rename field to "PossibleLocations"
-        field["PossibleLocations"] = field.pop("Possible Locations")
         output.append(field)
 
+# create field "PossibleLocations" and remove "Possible Locations"
+for field in output:
+    try:
+        field["PossibleLocations"] = field.pop("Possible Locations")
+        print("match")
+    except KeyError:
+        print("nomatch")
+
+print(len(output))
 
 # write data to file
-with open("expirmental_data.json", "w") as json_file:
+with open("static/data.json", "w") as json_file:
     json.dump(output, json_file)

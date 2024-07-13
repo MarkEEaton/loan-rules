@@ -243,12 +243,12 @@ const columns = [
   },
 ];
 
-const url = "/static/experimental_data.json";
+const url = "/static/data.json";
 
 fetch(url)
   .then((response) => response.json())
   .then((data) => {
-    rows = data;
+    const rows = data;
     const app = Vue.createApp({
       setup() {
         return {
