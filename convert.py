@@ -12,28 +12,17 @@ output = []
 # separate out "Possible Locations" and create an entry for each
 for field in json_list:
     pl = field["Possible Locations"].split(",")
-    if len(pl) > 1:
-        for location in pl:
-
-            # remove initial spaces
-            if location[:1] == " ":
-                location = location[1:]
-
-            output.append(field)
-            output[-1]["Possible Locations"] = location
-    else:
+    for location in pl:
         output.append(field)
+        output[-1]["Possible Locations"] = location.strip()
 
 # create field "PossibleLocations" and remove "Possible Locations"
 for field in output:
     try:
         field["PossibleLocations"] = field.pop("Possible Locations")
-        print("match")
     except KeyError:
-        print("nomatch")
-
-print(len(output))
+        pass
 
 # write data to file
 with open("static/data.json", "w") as json_file:
-    json.dump(output, json_file)
+    json.dump(output, json_file, indent=4)
