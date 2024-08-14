@@ -13,15 +13,14 @@ output = []
 for field in json_list:
     pl = field["Possible Locations"].split(",")
     for location in pl:
-        output.append(field)
-        output[-1]["Possible Locations"] = location.strip()
+        modified_field = field.copy()
+        modified_field["PossibleLocations"] = location.strip()
+        output.append(modified_field)
 
-# create field "PossibleLocations" and remove "Possible Locations"
 for field in output:
-    try:
-        field["PossibleLocations"] = field.pop("Possible Locations")
-    except KeyError:
-        pass
+    field.pop("Possible Locations")
+
+pprint(output)
 
 # write data to file
 with open("static/data.json", "w") as json_file:
