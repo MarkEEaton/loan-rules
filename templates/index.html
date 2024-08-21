@@ -22,6 +22,18 @@
 
   <body>
     <div id="q-app">
+
+      <div class="q-pa-md">
+        <q-btn-dropdown color="primary" label="College">
+          <q-list>
+            <q-item clickable v-close-popup @click="onItemClick">
+              <q-item-section>
+                <q-item-label>BM</q-item-label>
+              </q-item-section>
+            </q-item>
+          </q-list>
+        </q-btn-dropdown>
+      </div>
       <div class="q-pa-md">
         <q-table
           class="my-sticky-column-table"
