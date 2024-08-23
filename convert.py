@@ -17,8 +17,12 @@ for field in json_list:
         modified_field["PossibleLocations"] = location.strip()
         output.append(modified_field)
 
+# remove the old Possible Locations field
 for field in output:
     field.pop("Possible Locations")
+
+# remove duplicates in list
+output = [dict(t) for t in {tuple(d.items()) for d in output}]
 
 pprint(output)
 
